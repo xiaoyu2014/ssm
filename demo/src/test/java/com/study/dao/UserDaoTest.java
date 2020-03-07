@@ -1,22 +1,25 @@
 package com.study.dao;
 
 import com.study.model.User;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
  * @Author: yuqi
- * @Date: 2020-03-08 00:22
+ * @Date: 2020-03-08 01:36
  */
-class UserDaoTest {
+public class UserDaoTest {
 
-    UserDao userDao = null;
+    private UserDao userDao = UserDao.getInstance();
 
     @Test
-    void insert() {
-        User user = new User();
-        user.setName("xiaoyu");
-        user.setSex(1);
-        userDao.insert(user);
+    public void testInsert() {
+        User user = User.builder().name("xiaoyu").sex(1).build();
+        Assert.assertTrue(userDao.insert(user));
     }
 
+    @Test
+    public void queryAllUser() {
+        System.out.println(userDao.queryAllUser());
+    }
 }

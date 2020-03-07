@@ -1,7 +1,6 @@
 package com.study.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 /**
  * @Author: yuqi
@@ -9,6 +8,10 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User {
 
     private long id;

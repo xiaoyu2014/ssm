@@ -1,11 +1,14 @@
 package com.study.dao;
 
+import com.google.common.collect.Lists;
 import com.study.model.User;
 import com.study.mybatis.jdbc.JdbcUtils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 /**
  * @Author: yuqi
@@ -13,24 +16,46 @@ import java.sql.SQLException;
  */
 public class UserDao {
 
-    public void insert(User user) {
+    private static UserDao userDao = new UserDao();
+
+    private UserDao(){
+
+    }
+    public static UserDao getInstance(){
+        return userDao;
+    }
+
+    public boolean insert(User user) {
         String sql = "insert into user value(null,?,?)";
         try (Connection connection = JdbcUtils.getConnection();
              PreparedStatement ps = JdbcUtils.createPStatement(connection, sql)) {
             ps.setString(1, user.getName());
             ps.setInt(2, user.getSex());
             ps.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 
-    public static void main(String[] args) {
-
-        User user = new User();
-        user.setName("xiaoyu");
-        user.setSex(1);
-        new UserDao().insert(user);
+    public List<User> queryAllUser(){
+        List<User> users = Lists.newArrayList();
+        String sql = "select * from user";
+        try (Connection connection = JdbcUtils.getConnection();
+             PreparedStatement ps = JdbcUtils.createPStatement(connection, sql);
+             ResultSet rs = ps.executeQuery()) {
+            while (rs.next()){
+                long id = rs.getLong(1);
+                String name = rs.getString(2);
+                int sex = rs.getInt(3);
+                System.out.println(name +":" + sex);
+                users.add(User.builder().id(id).name(name).sex(sex).build());
+            }
+            return users;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
-
 }

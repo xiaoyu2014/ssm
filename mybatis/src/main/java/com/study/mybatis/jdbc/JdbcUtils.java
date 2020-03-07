@@ -25,6 +25,7 @@ public class JdbcUtils {
         try {
             //加载数据库驱动
             Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("driver启动");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -45,21 +46,6 @@ public class JdbcUtils {
     }
 
     /**
-     * 关闭数据库连接
-     *
-     * @param connection
-     */
-    public static void closeConnection(Connection connection) {
-
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    /**
      * 创建statement
      *
      * @param connection
@@ -73,20 +59,6 @@ public class JdbcUtils {
             e.printStackTrace();
             return null;
         }
-    }
-
-    /**
-     * 关闭statement
-     * @param statement
-     */
-    public static void closeStatement(Statement statement) {
-
-        try {
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
     }
 
     /**
