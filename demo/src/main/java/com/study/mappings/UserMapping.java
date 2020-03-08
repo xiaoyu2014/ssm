@@ -16,21 +16,15 @@ public class UserMapping {
 
     public static void init(){
 
-        List<ParameterMapping> parameterMappings = Lists.newArrayList();
+        List<ParameterMapping> insertParameterMappings = Lists.newArrayList();
 
-        parameterMappings.add(ParameterMapping
-                .builder()
-                .javaType(Long.class)
-                .property("id")
-                .build());
-
-        parameterMappings.add(ParameterMapping
+        insertParameterMappings.add(ParameterMapping
                 .builder()
                 .javaType(Integer.class)
                 .property("sex")
                 .build());
 
-        parameterMappings.add(ParameterMapping
+        insertParameterMappings.add(ParameterMapping
                 .builder()
                 .javaType(String.class)
                 .property("name")
@@ -38,14 +32,28 @@ public class UserMapping {
 
         DefinitionRegister.register("UserMapper.insert",
                 BoundSql.builder()
-                        .sql("insert into user(`id`,`sex`,`name`) value(?,?,?)")
-                        .parameterMappings(parameterMappings)
+                        .sql("insert into user(`sex`,`name`) value(?,?)")
+                        .parameterMappings(insertParameterMappings)
                         .resultType(User.class)
                         .build());
         DefinitionRegister.register("UserMapper.queryAllUser",
                 BoundSql.builder()
                         .sql("select * from user")
-                        .parameterMappings(parameterMappings)
+                        .resultType(User.class)
+                        .build());
+
+
+        List<ParameterMapping> selectParameterMappings = Lists.newArrayList();
+        selectParameterMappings.add(ParameterMapping
+                .builder()
+                .javaType(String.class)
+                .property("name")
+                .build());
+
+        DefinitionRegister.register("UserMapper.queryAllUserByName",
+                BoundSql.builder()
+                        .sql("select * from user where name = ?")
+                        .parameterMappings(selectParameterMappings)
                         .resultType(User.class)
                         .build());
     }

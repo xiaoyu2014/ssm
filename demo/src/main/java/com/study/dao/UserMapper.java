@@ -13,4 +13,6 @@ public interface UserMapper {
     boolean insert(User user);
 
     List<User> queryAllUser();
+
+    List<User> queryAllUserByName(String userName);
 }

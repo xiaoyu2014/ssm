@@ -14,5 +14,5 @@ import lombok.Setter;
 public class ParameterMapping {
 
     private String property;
-    private Class<?> javaType = Object.class;
+    private Class<?> javaType;
 }

@@ -10,7 +10,7 @@ public interface SqlSession extends AutoCloseable{
 
     <E> List<E> selectList(String statement);
 
-    <T> T selectOne(String statement);
+    <E> List<E> selectList(String statement, Object parameterObject);
 
-    <T> int insert(String statement, T parameterObject);
+    int insert(String statement, Object parameterObject);
 }
