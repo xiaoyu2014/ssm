@@ -45,21 +45,6 @@ public class JdbcUtils {
         }
     }
 
-    /**
-     * 创建statement
-     *
-     * @param connection
-     * @return
-     */
-    public static Statement createStatement(Connection connection) {
-
-        try {
-            return connection.createStatement();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
 
     /**
      * 创建PStatement

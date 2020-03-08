@@ -18,20 +18,24 @@ public class UserDao {
 
     private static UserDao userDao = new UserDao();
 
-    private UserDao(){
+    private UserDao() {
 
     }
-    public static UserDao getInstance(){
+
+    public static UserDao getInstance() {
         return userDao;
     }
 
     public boolean insert(User user) {
-        String sql = "insert into user value(null,?,?)";
+        String sql = "insert into user value(?,?,?)";
         try (Connection connection = JdbcUtils.getConnection();
              PreparedStatement ps = JdbcUtils.createPStatement(connection, sql)) {
-            ps.setString(1, user.getName());
-            ps.setInt(2, user.getSex());
+            ps.setString(1, null);
+            ps.setString(2, user.getName());
+            ps.setInt(3, user.getSex());
+            connection.setAutoCommit(false);
             ps.executeUpdate();
+            connection.rollback();
             return true;
         } catch (SQLException e) {
             e.printStackTrace();
@@ -39,23 +43,22 @@ public class UserDao {
         }
     }
 
-    public List<User> queryAllUser(){
+    public List<User> queryAllUser() {
         List<User> users = Lists.newArrayList();
         String sql = "select * from user";
         try (Connection connection = JdbcUtils.getConnection();
              PreparedStatement ps = JdbcUtils.createPStatement(connection, sql);
              ResultSet rs = ps.executeQuery()) {
-            while (rs.next()){
+            while (rs.next()) {
                 long id = rs.getLong(1);
                 String name = rs.getString(2);
                 int sex = rs.getInt(3);
-                System.out.println(name +":" + sex);
+                System.out.println(name + ":" + sex);
                 users.add(User.builder().id(id).name(name).sex(sex).build());
             }
-            return users;
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null;
+        return users;
     }
 }
