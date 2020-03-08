@@ -21,4 +21,5 @@ public class BoundSql {
 
     private Class<?> resultType;
 
+    private String sqlCommand;
 }

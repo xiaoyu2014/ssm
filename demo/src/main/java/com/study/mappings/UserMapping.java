@@ -2,9 +2,11 @@ package com.study.mappings;
 
 import com.google.common.collect.Lists;
 import com.study.model.User;
-import com.study.mybatis.mapping.BoundSql;
-import com.study.mybatis.mapping.DefinitionRegister;
-import com.study.mybatis.mapping.ParameterMapping;
+import com.study.mybatis.mapping.*;
+import com.study.mybatis.mapping.definition.MybatisXmlDefinition;
+import com.study.mybatis.mapping.definition.SqlDefinition;
+import com.study.mybatis.mapping.parse.MappingParse;
+import com.study.mybatis.utils.GenericTokenParser;
 
 import java.util.List;
 
@@ -14,48 +16,12 @@ import java.util.List;
  */
 public class UserMapping {
 
-    public static void init(){
+    private final static String CURRENT_PATH = UserMapping.class.getClass().getResource("/").getPath();
+    private final static String fileName = CURRENT_PATH + "/mapper";
 
-        List<ParameterMapping> insertParameterMappings = Lists.newArrayList();
-
-        insertParameterMappings.add(ParameterMapping
-                .builder()
-                .javaType(Integer.class)
-                .property("sex")
-                .build());
-
-        insertParameterMappings.add(ParameterMapping
-                .builder()
-                .javaType(String.class)
-                .property("name")
-                .build());
-
-        DefinitionRegister.register("UserMapper.insert",
-                BoundSql.builder()
-                        .sql("insert into user(`sex`,`name`) value(?,?)")
-                        .parameterMappings(insertParameterMappings)
-                        .resultType(User.class)
-                        .build());
-        DefinitionRegister.register("UserMapper.queryAllUser",
-                BoundSql.builder()
-                        .sql("select * from user")
-                        .resultType(User.class)
-                        .build());
-
-
-        List<ParameterMapping> selectParameterMappings = Lists.newArrayList();
-        selectParameterMappings.add(ParameterMapping
-                .builder()
-                .javaType(String.class)
-                .property("name")
-                .build());
-
-        DefinitionRegister.register("UserMapper.queryAllUserByName",
-                BoundSql.builder()
-                        .sql("select * from user where name = ?")
-                        .parameterMappings(selectParameterMappings)
-                        .resultType(User.class)
-                        .build());
+    public static void init() {
+        MappingLoader mappingLoader = new MappingLoader();
+        mappingLoader.load(fileName);
     }
 
 }

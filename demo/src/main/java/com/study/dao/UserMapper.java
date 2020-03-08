@@ -1,5 +1,6 @@
 package com.study.dao;
 
+import com.study.dto.Condition;
 import com.study.model.User;
 
 import java.util.List;
@@ -10,9 +11,15 @@ import java.util.List;
  */
 public interface UserMapper {
 
-    boolean insert(User user);
+    int insert(User user);
 
     List<User> queryAllUser();
 
     List<User> queryAllUserByName(String userName);
+
+    int updateByCondition(Condition condition);
+
+    int deleteByName(String name);
+
+    int deleteAll();
 }

@@ -8,7 +8,7 @@ import java.util.Map;
  * @Author: yuqi
  * @Date: 2020-03-08 14:30
  */
-public class DefinitionRegister {
+public class MapperDefinitionRegister {
 
     public static Map<String,BoundSql> boundSqlMap = Maps.newHashMap();
 
