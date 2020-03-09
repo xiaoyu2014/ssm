@@ -43,6 +43,10 @@
             <groupId>com.study</groupId>
             <artifactId>mybatis</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.study</groupId>
+            <artifactId>spring</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

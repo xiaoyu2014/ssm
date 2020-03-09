@@ -1,14 +1,7 @@
-package com.study.mappings;
+package com.study.demo.mappings;
 
-import com.google.common.collect.Lists;
-import com.study.model.User;
+import com.study.mybatis.annotation.RepositoryInitial;
 import com.study.mybatis.mapping.*;
-import com.study.mybatis.mapping.definition.MybatisXmlDefinition;
-import com.study.mybatis.mapping.definition.SqlDefinition;
-import com.study.mybatis.mapping.parse.MappingParse;
-import com.study.mybatis.utils.GenericTokenParser;
-
-import java.util.List;
 
 /**
  * @Author: yuqi
@@ -22,6 +15,9 @@ public class UserMapping {
     public static void init() {
         MappingLoader mappingLoader = new MappingLoader();
         mappingLoader.load(fileName);
+
+        RepositoryInitial repositoryInitial = new RepositoryInitial();
+        repositoryInitial.init();
     }
 
 }

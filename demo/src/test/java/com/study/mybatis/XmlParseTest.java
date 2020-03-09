@@ -1,11 +1,9 @@
-package com.study.dao;
+package com.study.mybatis;
 
-import com.study.model.User;
 import com.study.mybatis.mapping.definition.MybatisXmlDefinition;
 import com.study.mybatis.mapping.parse.MappingParse;
 import org.junit.Test;
 
-import java.io.File;
 import java.util.List;
 
 /**

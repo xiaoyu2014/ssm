@@ -1,7 +1,8 @@
-package com.study.dao;
+package com.study.demo.dao;
 
-import com.study.dto.Condition;
-import com.study.model.User;
+import com.study.demo.dto.Condition;
+import com.study.demo.model.User;
+import com.study.mybatis.annotation.Repository;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
  * @Author: yuqi
  * @Date: 2020-03-08 14:41
  */
+@Repository
 public interface UserMapper {
 
     int insert(User user);

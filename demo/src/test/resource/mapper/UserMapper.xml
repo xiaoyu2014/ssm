@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<newmapper namespace="com.study.dao.UserMapper">
+<newmapper namespace="com.study.demo.dao.UserMapper">
 
-    <insert id="insert" parameterType="com.study.model.User">
+    <insert id="insert" parameterType="com.study.demo.model.User">
         insert into
         user(`sex`,`name`)
         value (#{sex},#{name})
     </insert>
-    <select id="queryAllUser" resultType="com.study.model.User">
+    <select id="queryAllUser" resultType="com.study.demo.model.User">
         select * from user
     </select>
-    <select id="queryAllUserByName" resultType="com.study.model.User" parameterType="java.lang.String">
+    <select id="queryAllUserByName" resultType="com.study.demo.model.User" parameterType="java.lang.String">
         select * from user where name = #{name}
     </select>
-    <update id="updateByCondition" parameterType="com.study.dto.Condition">
+    <update id="updateByCondition" parameterType="com.study.demo.dto.Condition">
         update user set sex = #{sex} where name = #{name}
     </update>
     <delete id="deleteByName" parameterType="java.lang.String">

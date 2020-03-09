@@ -11,17 +11,23 @@
     <modules>
         <module>mybatis</module>
         <module>demo</module>
+        <module>spring</module>
     </modules>
 
     <properties>
-        <mybatis.version>1.0-SNAPSHOT</mybatis.version>
+        <ssm.version>1.0-SNAPSHOT</ssm.version>
     </properties>
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>com.study</groupId>
                 <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
+                <version>${ssm.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.study</groupId>
+                <artifactId>spring</artifactId>
+                <version>${ssm.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
