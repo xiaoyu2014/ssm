@@ -3,8 +3,8 @@ package com.study.demo.dao;
 import com.study.demo.dto.Condition;
 import com.study.demo.mappings.UserMapping;
 import com.study.demo.model.User;
-import com.study.spring.bean.beanfactory.BeanFactory;
-import com.study.spring.bean.beanfactory.DefaultBeanFactory;
+import com.study.spring.bean.factory.BeanFactory;
+import com.study.spring.bean.factory.support.DefaultBeanFactory;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,9 +18,9 @@ public class UserMapperTest {
 
     @Before
     public void before(){
-        BeanFactory beanFactory = new DefaultBeanFactory("com.study.demo");
-        UserMapping.init();
+        BeanFactory beanFactory = new DefaultBeanFactory("com.study");
         userMapper = beanFactory.getBean("userMapper");
+        beanFactory.getBean("userMapping");
     }
 
     @Test

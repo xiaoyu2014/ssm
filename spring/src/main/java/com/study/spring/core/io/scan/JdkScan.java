@@ -1,4 +1,4 @@
-package com.study.spring.bean.scan;
+package com.study.spring.core.io.scan;
 
 import com.google.common.collect.Sets;
 
@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collections;
 import java.util.Enumeration;
 import java.util.Set;
 
@@ -27,8 +26,6 @@ public class JdkScan implements ClassScan {
             while (urls.hasMoreElements()) {
                 URL url = urls.nextElement();
                 if ("file".equals(url.getProtocol())) {
-                    System.out.println("file:" + url.getFile());
-                    System.out.println("path:" + url.getPath());
                     String filePath = url.getFile();
 
                     File file = new File(filePath);

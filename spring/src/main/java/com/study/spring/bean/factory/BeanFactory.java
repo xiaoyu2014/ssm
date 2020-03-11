@@ -1,4 +1,4 @@
-package com.study.spring.bean.beanfactory;
+package com.study.spring.bean.factory;
 
 /**
  * @Author: yuqi

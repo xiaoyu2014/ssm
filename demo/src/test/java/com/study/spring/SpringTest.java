@@ -1,7 +1,7 @@
 package com.study.spring;
 
-import com.study.spring.bean.scan.ClassScan;
-import com.study.spring.bean.scan.JdkScan;
+import com.study.spring.core.io.scan.ClassScan;
+import com.study.spring.core.io.scan.JdkScan;
 import org.junit.Before;
 import org.junit.Test;
 

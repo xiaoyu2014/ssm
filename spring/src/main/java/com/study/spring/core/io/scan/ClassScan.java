@@ -1,4 +1,4 @@
-package com.study.spring.bean.scan;
+package com.study.spring.core.io.scan;
 
 import java.util.Set;
 
