@@ -1,4 +1,4 @@
-package com.study.mybatis.utils;
+package com.study.spring.core.io.utils;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;

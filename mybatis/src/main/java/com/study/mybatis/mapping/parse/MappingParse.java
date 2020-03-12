@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import com.study.mybatis.mapping.SqlCommand;
 import com.study.mybatis.mapping.definition.MybatisXmlDefinition;
 import com.study.mybatis.mapping.definition.SqlDefinition;
-import com.study.mybatis.utils.XmlUtils;
+import com.study.spring.core.io.utils.XmlUtils;
 import org.dom4j.Document;
 import org.dom4j.Element;
 

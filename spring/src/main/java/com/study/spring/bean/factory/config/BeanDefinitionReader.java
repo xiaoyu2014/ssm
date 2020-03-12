@@ -6,5 +6,5 @@ package com.study.spring.bean.factory.config;
  */
 public interface BeanDefinitionReader {
 
-    void loadBeanDefinition(String packageName);
+    void loadBeanDefinition(String location);
 }

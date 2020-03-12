@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans namespace="www.com.study.spring/schema/context,www.com.study.mybatis/schema/context">
+    <component-scan base-package="com.study.demo"/>
+    <mapper-scan base-package="com.study.demo.dao" location="mapper"/>
+</beans>
+
