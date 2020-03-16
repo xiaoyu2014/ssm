@@ -11,9 +11,9 @@ import lombok.Setter;
 @Builder
 @Getter
 @Setter
-public class PropertyValue {
+public class Propertydependency {
 
-    private String name;
+    private String propertyName;
 
-    private Object value;
+    private String propertyRef;
 }

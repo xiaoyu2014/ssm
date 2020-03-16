@@ -7,6 +7,7 @@ import com.study.spring.core.io.scan.JdkScan;
 import com.study.spring.core.io.utils.XmlUtils;
 import org.dom4j.Document;
 import org.dom4j.Element;
+import org.dom4j.Namespace;
 
 import java.util.List;
 
@@ -31,11 +32,9 @@ public class XmlBeanDefinitionReader implements BeanDefinitionReader {
 
        Document document = XmlUtils.load(location);
        Element root = document.getRootElement();
-       String [] nameSpaceUris = root.attribute("namespace").getStringValue().split(",");
+
        for(Element element : (List<Element>)root.elements()){
-           for(String nameSpaceUri : nameSpaceUris){
-                namespaceHandlerResolver.getNamespaceHandler(nameSpaceUri).parse(element, beanDefinitionRegistry);
-           }
+           namespaceHandlerResolver.getNamespaceHandler(element.getNamespaceURI()).parse(element, beanDefinitionRegistry);
        }
     }
 }

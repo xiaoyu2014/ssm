@@ -1,10 +1,10 @@
 package com.study.spring.bean.factory.config;
 
+import com.google.common.collect.Lists;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.lang.reflect.Constructor;
 import java.util.List;
 
 /**
@@ -24,7 +24,7 @@ public class BeanDefinition {
 
     private Object[] constructArgs;
 
-    Class<?>[] constructorParams;
+    private Class<?>[] constructorParams;
 
-    private List<PropertyValue> propertyValues;
+    private List<Propertydependency> propertydependencies;
 }

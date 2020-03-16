@@ -1,6 +1,7 @@
 package com.study.mybatis.namespace;
 
 import com.google.common.base.Strings;
+import com.google.common.collect.Lists;
 import com.study.mybatis.annotation.MapperScanner;
 import com.study.mybatis.annotation.Repository;
 import com.study.mybatis.mapping.MappingLoader;
@@ -36,10 +37,6 @@ public class MapperScannerBeanParser implements BeanDefinitionParser {
     @Override
     public void parse(Element element, BeanDefinitionRegistry beanDefinitionRegistry) {
 
-        if(!element.getName().equals("mapper-scan")){
-            return;
-        }
-
         String packageName = element.attributeValue("base-package");
         Set<Class<?>> allClasses = mapperScanner.scan(packageName);
         allClasses.stream().filter(beanClass -> beanClass.isAnnotationPresent(Repository.class)).forEach(beanClass ->{
@@ -56,6 +53,7 @@ public class MapperScannerBeanParser implements BeanDefinitionParser {
                         .beanClass(proxyClass).beanClassName(beanName)
                         .constructArgs(new Object[]{ih})
                         .constructorParams(new Class<?>[]{InvocationHandler.class})
+                        .propertydependencies(Lists.newArrayList())
                         .build();
                 beanDefinitionRegistry.registerBeanDefinition(beanName, beanDefinition);
             }

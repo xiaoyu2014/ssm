@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans namespace="www.com.study.spring/schema/context,www.com.study.mybatis/schema/context">
-    <component-scan base-package="com.study.demo"/>
-    <mapper-scan base-package="com.study.demo.dao" location="mapper"/>
+<beans  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:context="http://www.com.study.spring/schema/context"
+        xmlns:mybatis="http://www.com.study.spring/schema/mybatis"
+        xsi:schemaLocation="http://www.com.study.spring/schema/mybatis
+        http://www.com.study.spring/schema/mybatis/mybatis.xsd
+        http://www.com.study.spring/schema/context
+        http://www.com.study.spring/schema/context/context.xsd">
+    <context:component-scan base-package="com.study.demo"/>
+    <mybatis:mapper-scan base-package="com.study.demo.dao" location="mapper"/>
 </beans>
 

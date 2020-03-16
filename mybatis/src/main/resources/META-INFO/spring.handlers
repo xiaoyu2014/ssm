@@ -1,1 +1,1 @@
-www.com.study.mybatis/schema/context=com.study.mybatis.namespace.MybatisNamespaceHandler
+http\://www.com.study.spring/schema/mybatis=com.study.mybatis.namespace.MybatisNamespaceHandler

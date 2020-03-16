@@ -16,6 +16,12 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
 
     public abstract void refreshBeanFactory();
 
+    public void preInitialSingletonBeans(){
+        for(String name : getBeanFactory().getBeanNames()){
+            getBean(name);
+        }
+    }
+
     @Override
     public <T> T getBean(String name) {
         return getBeanFactory().getBean(name);
@@ -26,5 +32,7 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
         refreshBeanFactory();
 
         loadBeanDefinition(getBeanFactory());
+
+        preInitialSingletonBeans();
     }
 }
