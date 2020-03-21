@@ -12,6 +12,8 @@
         <module>mybatis</module>
         <module>demo</module>
         <module>spring</module>
+        <module>mns</module>
+        <module>network</module>
     </modules>
 
     <properties>
