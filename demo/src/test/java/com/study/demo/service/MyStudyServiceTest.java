@@ -39,7 +39,7 @@ public class MyStudyServiceTest {
     }
     @Test
     public void updateByCondition() {
-        System.out.println(myStudyService.updateByCondition(Condition.builder().name("xiaozhang").sex(2).build()));
+        System.out.println(myStudyService.updateByCondition(Condition.builder().name("xiaoyu").sex(1).build()));
     }
 
     @Test
